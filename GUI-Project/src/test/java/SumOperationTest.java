@@ -100,10 +100,4 @@ public class SumOperationTest {
         String actual = calculatorPage.doOperation(values);
         assertThat(actual, is("8.888888887999911e+23"));
     }
-    @Test
-    public void test_doOperation_sum5And2_returnss() {
-        String values = "5+2=";
-        String actual = calculatorPage.doOperation(values);
-        assertThat(actual, is("7"));
-    }
 }
