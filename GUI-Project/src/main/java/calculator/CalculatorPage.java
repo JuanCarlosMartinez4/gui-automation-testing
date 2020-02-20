@@ -12,7 +12,8 @@ import org.openqa.selenium.WebDriver;
 public class CalculatorPage {
 
     private WebDriver webDriver;
-    private static final String URL = "https://www.calculadora.org/";
+    private static final String URL_SIMPLE = "https://www.calculadora.org/";
+    private static final String URL_SCIENTIFIC = "https://www.calculadora.org/cientifica/";
     private By itemValue;
     private static final By SCREEN_BY = By.cssSelector(".screen");
 
@@ -37,7 +38,7 @@ public class CalculatorPage {
      * @return result of operation.
      */
     public String doOperation(String values) {
-        webDriver.get(URL);
+        webDriver.get(URL_SIMPLE);
         webDriver.manage().window().setSize(new Dimension(1280, 800));
         for (Object item : values.toCharArray()) {
             itemValue = By.xpath("//span[text()='" + item + "']");
