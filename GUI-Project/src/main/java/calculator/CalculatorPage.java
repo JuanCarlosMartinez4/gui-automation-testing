@@ -11,7 +11,7 @@ public class CalculatorPage {
     private WebDriver webDriver;
 
     private static final String URL = "https://www.calculadora.org/";
-    By itemValue;
+    private By itemValue;
     private static final By SCREEN_BY = By.cssSelector(".screen");
 
     public CalculatorPage() {
@@ -22,10 +22,10 @@ public class CalculatorPage {
         return webDriver.findElement(By.xpath("//*[@id=\"calculator\"]/div[1]/div")).getText();
     }
 
-    public String doOperation(List values) {
+    public String doOperation(String values) {
         webDriver.get(URL);
         webDriver.manage().window().setSize(new Dimension(1280, 800));
-        for (Object item : values) {
+        for (Object item : values.toCharArray()) {
             itemValue = By.xpath("//span[text()='"+item+"']");
             webDriver.findElement(itemValue).click();
         }
